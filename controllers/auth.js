@@ -15,7 +15,7 @@ const crearUsuario = async (req, res = response ) => {
         if (usuario) {
             return res.status(400).json({
                 ok: false,
-                msg: 'Ya existe un usuario con ese email',
+                msg: 'El usuario ya existe',
             });
         }
         
@@ -38,6 +38,7 @@ const crearUsuario = async (req, res = response ) => {
             msg: 'registro',
             uid: usuario.id,
             name: usuario.name,
+            token,
         }); 
 
     } catch (error) {
@@ -45,7 +46,6 @@ const crearUsuario = async (req, res = response ) => {
         res.status(500).json({
             ok: false,
             msg: 'Avise al administrador que hubo un fallo',
-            token,
         });
     }
 
