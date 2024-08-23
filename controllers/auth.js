@@ -30,7 +30,7 @@ const crearUsuario = async (req, res = response ) => {
         await usuario.save();
 
         // ! Generar Json Web Token
-        const token = await generarJWT(usuario.uid, usuario.name);
+        const token = await generarJWT(usuario.id, usuario.name);
         
         //Solo se debe de envíar una sola respuesta, si se envía más de una respuesta dará error
         res.status(201).json({
