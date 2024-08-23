@@ -5,7 +5,7 @@ const Evento = require('../models/Evento');
 const getEventos = async (req, res = response) => {
 
     // * Trae todos los eventos creados
-    const eventos = await Evento.find(); // .populate('user', 'name') //nos ayuda rellenar la información del usuario en la respuesta
+    const eventos = await Evento.find().populate('user', 'name'); //nos ayuda rellenar la información del usuario en la respuesta
                                 
 
     return res.status(200).json({
